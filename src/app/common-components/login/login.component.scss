@@ -1,0 +1,28 @@
+.login-page {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../../assets/images/Login\ –\ 1.png');
+display: flex;
+justify-content: center;
+align-items: center;
+
+  .loginSection {
+    width: 85%;
+    height: 80vh;
+    background-color: #ffffffa1;
+
+    .leftSection {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      .loginFrom {
+
+        .loginHeading {
+          h1 {}
+        }
+      }
+    }
+  }
+}
