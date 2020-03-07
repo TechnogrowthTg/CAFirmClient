@@ -1,4 +1,4 @@
-
+$Headingcolor:#000000;
 .login-page {
   width: 100%;
   height: 100vh;
@@ -20,12 +20,20 @@ background-size:cover;
         display: flex;
         justify-content: center;
         align-items: center;
+        float:left;
       .loginFrom {
 
         .loginHeading {
-          h1 {}
+          h1 {
+            color:$Headingcolor;
+
+          }
         }
       }
     }
+   .rightSection{
+    width: 50%;
+    height: 100%;
+   }
   }
 }
