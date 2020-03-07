@@ -7,6 +7,7 @@ import { LoginComponent } from './common-components/login/login.component';
 import { HomeComponent } from './common-components/home/home.component';
 import { HeaderComponent } from './common-components/header/header.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SideNavComponent } from './common-components/side-nav/side-nav.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
