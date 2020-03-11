@@ -21,9 +21,22 @@
       align-items: center;
 
       .loginFrom {
+        width: 45%;
 
         .loginHeading {
-          h1 {}
+          h1 {
+            margin-bottom: 30px;
+          }
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #login {
+          width: 120px !important;
+          height: 40px !important;
         }
       }
     }

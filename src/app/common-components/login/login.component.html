@@ -7,6 +7,26 @@
         <div class="loginHeading">
           <h1>Login</h1>
         </div>
+<form >
+
+        <mat-form-field appearance="outline">
+          <mat-label>Outline form field</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </form>
+      <button id="login" mat-raised-button color="primary" (click)="login()" >Login</button>
+
       </div>
 
     </div>

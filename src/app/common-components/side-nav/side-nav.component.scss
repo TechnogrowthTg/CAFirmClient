@@ -1,0 +1,53 @@
+$font : "Poppins",sans-serif;
+$secondary_color:#767676;
+
+
+.sidenav_body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 55px;
+    .active-list-item{
+        background-color: #713BDB;
+        color: white !important;
+        }
+    .menu{
+        color: $secondary_color;
+        width: 80%;
+        margin: 15px 0px;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        height: 50px;
+        padding: 0px 0px 0px 33px;
+        border-radius: 8px;
+        box-shadow: 3px 3px 6px #00000061;
+        h3{
+            margin: 0px 0px 0px 5px;
+            font-size: 1.1rem;
+            font-family: $font;
+        }
+    }
+    // .menu :hover{
+    //     // background-color: #713BDB;
+    //     color: black;
+    // }
+
+    // .active{
+    //     background-color: #713BDB;
+    //     color: white;
+    // }
+    .menu:hover{
+                background-color: #713BDB;
+        color: white;
+    }
+
+}
+
+
+
+// .menu :hover{
+//     // background-color: #713BDB;
+//     color: black;
+// }

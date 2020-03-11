@@ -10,6 +10,11 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent, children: [
       {
+        path:'dashboard',
+        loadChildren: () => import('../app/modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+      
+      },
+      {
         path: 'client',
         loadChildren: () => import('../app/modules/client/client.module').then(m => m.ClientModule)
       },
