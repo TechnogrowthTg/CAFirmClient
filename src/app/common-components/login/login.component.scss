@@ -1,3 +1,5 @@
+$Headingcolor:#000000;
+
 .login-page {
   width: 100%;
   height: 100vh;
@@ -19,6 +21,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      float: left;
 
       .loginFrom {
         width: 45%;
@@ -39,6 +42,12 @@
           height: 40px !important;
         }
       }
+
+    }
+
+    .rightSection {
+      width: 50%;
+      height: 100%;
     }
   }
 }
