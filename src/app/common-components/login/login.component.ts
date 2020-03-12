@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrManager } from 'ng6-toastr-notifications';
+import { HttpService } from 'src/app/services/http.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-login',
@@ -8,14 +13,55 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-  constructor(public router: Router) { }
+  email:any;
+  password:any;
+  response: any;
+
+  loginForm = new FormGroup({
+    email:new FormControl('',Validators.required),
+    password: new FormControl('', [Validators.required])
+
+  })
+  constructor(public router: Router, private httpService: HttpService) {
+    if (sessionStorage.getItem('token')) {
+          this.router.navigate(['home/dashboard']);
+    } else {
+      this.router.navigate(['login']);
+    }
+   }
 
   ngOnInit() {
   }
 
 
+
   login(){
-    this.router.navigate(['home/dashboard']);
+    this.email = this.loginForm.controls.email.value;
+    this.password = this.loginForm.controls.password.value;
+
+    if(this.loginForm.valid){
+
+      this.httpService.postSecured(environment.login,this.loginForm.value).subscribe(data =>{
+        this.response=data;
+        console.log(this.response);
+
+        if(this.response.error === false){
+          sessionStorage.setItem('token',this.response.result[0].token);
+          this.router.navigate(['home/dashboard']);
+          // this.toastr.successToastr('You have successfully logged in');
+
+        }else{
+          this.onLoginFailure();
+
+        }
+        
+      })
+    }
+  }
+
+  onLoginFailure() {
+    this.router.navigate(['login']);
+    // this.toastr.errorToastr('Unauthorized User please try again');
 
   }
 }

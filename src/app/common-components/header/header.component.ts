@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  user_name = "Admin@gmail.com"
+  constructor(public httpService : HttpService,private router:Router) { }
 
   ngOnInit() {
   }
