@@ -67,3 +67,14 @@ table {
 
   }
 }
+
+tr.mat-header-row {
+    background-color: #E8EAF1;
+}
+
+td.mat-cell{
+    text-align: center;
+}
+th.mat-header-cell  {
+    text-align: center !important;
+}
