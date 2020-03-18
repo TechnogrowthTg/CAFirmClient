@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required])
 
   })
-  constructor(public router: Router, private httpService: HttpService) {
+  constructor(public router: Router,private toaster: ToastrManager, private httpService: HttpService, private auth: AuthGuardService) {
     if (sessionStorage.getItem('token')) {
           this.router.navigate(['home/dashboard']);
     } else {
@@ -47,8 +48,10 @@ export class LoginComponent implements OnInit {
 
         if(this.response.error === false){
           sessionStorage.setItem('token',this.response.result[0].token);
+          this.auth.getToken();
+          console.log(this.auth.currentUser);
           this.router.navigate(['home/dashboard']);
-          // this.toastr.successToastr('You have successfully logged in');
+          this.toaster.successToastr('You have successfully logged in');
 
         }else{
           this.onLoginFailure();
@@ -61,7 +64,7 @@ export class LoginComponent implements OnInit {
 
   onLoginFailure() {
     this.router.navigate(['login']);
-    // this.toastr.errorToastr('Unauthorized User please try again');
+    this.toaster.errorToastr('Unauthorized User please try again');
 
   }
 }
