@@ -1,3 +1,5 @@
+$background-color:#F5F6FA;
+$secondary-color:#E8EAF1;
 .home{
     width: 100%;
     height: 100vh;
@@ -17,6 +19,7 @@
     .routing_body{
         width: 100%;
         height: 92vh;
+        background-color: $background-color;
     }
     }
 }

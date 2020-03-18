@@ -1,12 +1,69 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+$font-color:#271F5A;
 
-body{
-    margin: 0px ;
+body {
+  margin: 0px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+table {
+  width: 100%;
+}
+
+
+.component-wrapper {
+  padding: 20px;
+
+
+  .table-wrapper {
+    height: 62vh;
+    width: 100%;
+    overflow: auto;
+    padding: 20px 0px;
+  }
+}
+
+.addClientBtn {
+  display: flex;
+  /* border: 1px solid; */
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #F5F6FA;
+  box-shadow: 3px 3px 4px #00000057, -4px -4px 6px #ffffff;
+  cursor: pointer;
+
+  h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0px 6px;
+    font-family: "Poppins", sans-serif;
+    color: $font-color;
+
+  }
+}
