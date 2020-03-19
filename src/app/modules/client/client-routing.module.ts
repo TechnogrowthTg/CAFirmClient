@@ -2,12 +2,13 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClientTableComponent } from './client-table/client-table.component';
 import { ClientFromComponent } from './client-from/client-from.component';
+import { ClientTabComponent } from './client-tab/client-tab.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: ClientTableComponent
+    component: ClientTabComponent
   },
   {
     path:'client-form',
