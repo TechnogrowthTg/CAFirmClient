@@ -39,27 +39,28 @@ export class LoginComponent implements OnInit {
   login(){
     this.email = this.loginForm.controls.email.value;
     this.password = this.loginForm.controls.password.value;
+    this.router.navigate(['home/dashboard']);
 
-    if(this.loginForm.valid){
+    // if(this.loginForm.valid){
 
-      this.httpService.postSecured(environment.login,this.loginForm.value).subscribe(data =>{
-        this.response=data;
-        console.log(this.response);
+    //   this.httpService.postSecured(environment.login,this.loginForm.value).subscribe(data =>{
+    //     this.response=data;
+    //     console.log(this.response);
 
-        if(this.response.error === false){
-          sessionStorage.setItem('token',this.response.result[0].token);
-          this.auth.getToken();
-          console.log(this.auth.currentUser);
-          this.router.navigate(['home/dashboard']);
-          this.toaster.successToastr('You have successfully logged in');
+    //     if(this.response.error === false){
+    //       sessionStorage.setItem('token',this.response.result[0].token);
+    //       this.auth.getToken();
+    //       console.log(this.auth.currentUser);
+    //       this.router.navigate(['home/dashboard']);
+    //       this.toaster.successToastr('You have successfully logged in');
 
-        }else{
-          this.onLoginFailure();
+    //     }else{
+    //       this.onLoginFailure();
 
-        }
+    //     }
         
-      })
-    }
+    //   })
+    // }
   }
 
   onLoginFailure() {
