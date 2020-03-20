@@ -8,6 +8,7 @@ export const environment = {
   production: false,
   login: serverBaseUrl + 'auth/login',
   getClientData: baseUrl + 'ClientData.json',
+  getClientFormData: baseUrl + 'ClientGroup.json',
   postClientData : baseUrl + 'client/clientForm'
 };
 

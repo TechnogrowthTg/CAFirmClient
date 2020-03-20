@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
+import { FormGroup, FormControl } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-client-group-form',
@@ -7,9 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientGroupFormComponent implements OnInit {
 
-  constructor() { }
+  response: any;
+  clientGroupForm = new FormGroup({
+    groupName: new FormControl(),
+    groupShortName: new FormControl(),
+    groupContact: new FormControl()
+  });
+
+  constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager) { }
 
   ngOnInit() {
   }
 
+  submitClientGroupForm(){
+
+    if(this.clientGroupForm.valid){
+
+      this.httpService.postSecured(environment.postClientData,this.clientGroupForm.value).subscribe(data=>{
+        this.response=data;
+
+        this.router.navigate(['home/client']);
+
+      })
+
+    }
+  }
+
+  cancelForm(){
+    this.clientGroupForm.reset()
+    this.router.navigate(['home/client']);
+  }
 }

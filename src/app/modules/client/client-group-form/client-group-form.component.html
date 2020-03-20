@@ -1,1 +1,31 @@
-<p>client-group-form works!</p>
+<div class="formFieldSection">
+
+    <form [formGroup]="clientGroupForm" autocomplete="off">
+        
+        <div class="inputField">
+            <mat-form-field>
+              <input matInput placeholder="Group Name"formControlName="groupName">
+            </mat-form-field>
+          </div>
+
+          <div class="inputField">
+            <mat-form-field>
+              <input matInput placeholder="Group Short Name"formControlName="groupShortName">
+            </mat-form-field>
+          </div>
+
+          <div class="inputField">
+            <mat-form-field>
+              <input matInput placeholder="Group Contact"formControlName="groupContact">
+            </mat-form-field>
+          </div>
+    
+    
+    
+    </form>
+    <div class="submitBtnSection">
+      <button mat-flat-button color="primary" (click)="submitClientForm()" >submit</button>
+      <button mat-flat-button color="warn" (click)="cancelForm()">Cancel</button>
+    </div>
+  
+  </div>

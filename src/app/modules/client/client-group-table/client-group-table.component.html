@@ -1,1 +1,75 @@
-<p>client-group-table works!</p>
+<div class="component-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="textbox-search-view">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" autocomplete="off">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3 offset-md-3">
+          <div class="BtnSection">
+  
+            <div class="addClientBtn" (click)="clientForm()">
+              <i class="material-icons">
+                add_circle_outline
+              </i>
+              <h3>Add Client Group</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="table-wrapper">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+            <ng-container matColumnDef="srNo">
+              <th mat-header-cell *matHeaderCellDef> Sr. No. </th>
+              <td mat-cell *matCellDef="let element; let i=index"> {{response?.indexOf(element)+1}} </td>
+            </ng-container>
+  
+
+            <ng-container matColumnDef="groupName">
+                <th mat-header-cell *matHeaderCellDef> group Name </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element?.groupName}}
+                </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="groupShortName">
+              <th mat-header-cell *matHeaderCellDef> Group Short Name </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.groupShortName}}
+              </td>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="groupContact">
+              <th mat-header-cell *matHeaderCellDef> Group Contact </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.groupContact}}
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element">
+                <mat-icon title="Edit">edit</mat-icon>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky :  true"></tr>
+            <tr mat-row *matRowDef="let row; columns :  displayedColumns;"></tr>
+          </table>
+        </div>
+        <mat-paginator [pageSizeOptions]="[25, 50, 100, 1000]"></mat-paginator>
+  
+      </div>
+    </div>
+  
+  </div>
+  

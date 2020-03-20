@@ -11,7 +11,7 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class ClientTableComponent implements OnInit {
 
-  displayedColumns = ['srNo', 'name', 'contact', 'email', 'location', 'gst', 'contractMode', 'signUpDate', 'action'];
+  displayedColumns = ['srNo', 'name', 'contact', 'email', 'location', 'gst', 'contractMode', 'action'];
   dataSource: any = [];
   response: any;
 
