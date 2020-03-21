@@ -1,0 +1,119 @@
+<div class="component-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="textbox-search-view">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" autocomplete="off">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3 offset-md-3">
+          <div class="BtnSection">
+  
+            <div class="addClientBtn" (click)="contactForm()">
+              <i class="material-icons">
+                add_circle_outline
+              </i>
+              <h3>Add Contact</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="table-wrapper">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+            <ng-container matColumnDef="srNo">
+              <th mat-header-cell *matHeaderCellDef> Sr. No. </th>
+              <td mat-cell *matCellDef="let element; let i=index"> {{response?.indexOf(element)+1}} </td>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.name}}
+              </td>
+            </ng-container>
+  
+            <!-- <ng-container matColumnDef="signUpDate">
+              <th mat-header-cell *matHeaderCellDef> signUp Date </th>
+              <td mat-cell *matCellDef="let element"> {{element?.uploadedDate | date}} </td>
+            </ng-container> -->
+  
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.email}}
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="designation">
+              <th mat-header-cell *matHeaderCellDef> Designation </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.designation}}
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="mobile_no_1">
+              <th mat-header-cell *matHeaderCellDef> Mobile No. 1 </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.mobile_no_1}}
+              </td>
+            </ng-container>
+              
+            <ng-container matColumnDef="mobile_no_2">
+                <th mat-header-cell *matHeaderCellDef> Mobile No. 2 </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element?.mobile_no_2}}
+                </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="telephone">
+              <th mat-header-cell *matHeaderCellDef>Telephone </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.telephone}}
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> Address </th>
+              <td mat-cell *matCellDef="let element">
+                {{element?.address}}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="reference">
+                <th mat-header-cell *matHeaderCellDef> Reference </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element?.reference}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="current_status">
+                <th mat-header-cell *matHeaderCellDef> Current Status </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element?.current_status}}
+                </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element">
+                <mat-icon title="Edit">edit</mat-icon>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky :  true"></tr>
+            <tr mat-row *matRowDef="let row; columns :  displayedColumns;"></tr>
+          </table>
+        </div>
+        <mat-paginator [pageSizeOptions]="[25, 50, 100, 1000]"></mat-paginator>
+  
+      </div>
+    </div>
+  
+  </div>
+  

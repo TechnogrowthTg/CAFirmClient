@@ -9,7 +9,10 @@ export const environment = {
   login: serverBaseUrl + 'auth/login',
   getClientData: baseUrl + 'ClientData.json',
   getClientFormData: baseUrl + 'ClientGroup.json',
-  postClientData : baseUrl + 'client/clientForm'
+  postClientData : baseUrl + 'client/clientForm',
+
+  getContactData: baseUrl + 'ContactData.json',
+
 };
 
 /*
