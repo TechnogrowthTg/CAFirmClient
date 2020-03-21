@@ -1,1 +1,73 @@
-<p>contact-form works!</p>
+<div class="formFieldSection">
+
+  <form [formGroup]="contactForm" autocomplete="off">
+
+
+    <div class="inputField">
+      <mat-form-field>
+        <input matInput placeholder="Contact Person Name" formControlName="ContactPersonName">
+      </mat-form-field>
+    </div>
+
+    <div class="inputField">
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <div class="inputField">
+      <mat-form-field>
+        <input matInput placeholder="Designation Name" formControlName="designationName">
+      </mat-form-field>
+    </div>
+
+    <div class="inputField">
+      <mat-form-field>
+        <input matInput placeholder="Mobile Number 1" formControlName="MobileNumber1">
+      </mat-form-field>
+    </div>
+
+    <div class="inputField">
+      <mat-form-field>
+        <input matInput placeholder="Mobile Number 2" formControlName="MobileNumber2">
+      </mat-form-field>
+    </div>
+
+    <div class="inputField">
+      <mat-form-field>
+        <input matInput placeholder="Telephone" formControlName="telephone">
+      </mat-form-field>
+    </div>
+
+    
+    
+    
+    <div class="inputField">
+        <mat-form-field>
+            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+        </mat-form-field>
+    </div>
+    
+          <div class="inputField">
+            <mat-form-field>
+              <input matInput placeholder="Reference" formControlName="Reference">
+            </mat-form-field>
+          </div>
+
+    <div class="inputField">
+      <mat-form-field>
+        <mat-select placeholder="Current Status" formControlName="currentStatus">
+          <mat-option value="live">Live </mat-option>
+          <mat-option value="DND"> DND</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+  </form>
+  <div class="submitBtnSection">
+    <button mat-flat-button color="primary" (click)="submitContactForm()">submit</button>
+    <button mat-flat-button color="warn" (click)="cancelForm()">Cancel</button>
+  </div>
+
+</div>
