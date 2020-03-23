@@ -7,11 +7,18 @@ const baseUrl = 'assets/json/';
 export const environment = {
   production: false,
   login: serverBaseUrl + 'auth/login',
+
+  // client
   getClientData: baseUrl + 'ClientData.json',
   getClientFormData: baseUrl + 'ClientGroup.json',
   postClientData : baseUrl + 'client/clientForm',
 
+  // contact
   getContactData: baseUrl + 'ContactData.json',
+
+  // service
+  getServiceData : baseUrl + 'ServiceData.json',
+  postServiceData : baseUrl + 'ServiceData.json'
 
 };
 

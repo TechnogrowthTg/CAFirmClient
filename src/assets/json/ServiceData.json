@@ -1,0 +1,53 @@
+[
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    },
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    },
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    },
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    },
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    },
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    },
+    {
+        "ServiceGroupName":"G4",
+        "ServiceName":"service1",
+        "ServicePayment":"2000",
+        "ServiceAmount":"200",
+        "ServiceFrequency":"10"
+    }
+
+    
+]
