@@ -9,7 +9,7 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 export class SideNavComponent implements OnInit {
 
   constructor(public authGuard: AuthGuardService) { 
-    authGuard.currentUser.role
+    // authGuard.currentUser.role
   }
 
   ngOnInit() {
