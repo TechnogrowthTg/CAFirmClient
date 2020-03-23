@@ -55,7 +55,7 @@ export class ContactFormComponent implements OnInit {
 
   cancelForm(){
     this.contactForm.reset()
-    this.router.navigate(['home/client']);
+    this.router.navigate(['home/contact']);
   }
 
 }

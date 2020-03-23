@@ -1,6 +1,6 @@
 <section class="sidenav_body"  >
 
-    <div class="menu"  routerLink="./dashboard" routerLinkActive="active-list-item" *ngIf="1 == authGuard.currentUser.role">
+    <div class="menu"  routerLink="./dashboard" routerLinkActive="active-list-item" >
         <i class="material-icons">
             dashboard
             </i>
@@ -8,7 +8,7 @@
                 Dashboard
             </h3>
     </div>
-    <div class="menu" routerLink="./client" routerLinkActive="active-list-item" *ngIf="1 == authGuard.currentUser.role">
+    <div class="menu" routerLink="./client" routerLinkActive="active-list-item" >
         <i class="material-icons">
             supervisor_account
             </i>
@@ -16,7 +16,7 @@
                 Client
             </h3>
     </div>
-    <div class="menu "  routerLink="./contact" routerLinkActive="active-list-item" *ngIf="1 == authGuard.currentUser.role"> 
+    <div class="menu "  routerLink="./contact" routerLinkActive="active-list-item" > 
         <i class="material-icons">  
             contact_mail
             </i>
@@ -24,7 +24,7 @@
                 Contact
             </h3>
     </div>
-    <div class="menu " routerLink="./services" routerLinkActive="active-list-item" *ngIf="1 == authGuard.currentUser.role">
+    <div class="menu " routerLink="./services" routerLinkActive="active-list-item" >
         <i class="material-icons">
             web
             </i>

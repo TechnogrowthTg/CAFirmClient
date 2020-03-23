@@ -15,30 +15,30 @@ const routes: Routes = [
       {
         path:'dashboard',
         loadChildren: () => import('../app/modules/dashboard/dashboard.module').then(m => m.DashboardModule),
-        canActivate: [AuthGuardService],
-        data:{roles :[Role.dashboard]}
+        // canActivate: [AuthGuardService],
+        // data:{roles :[Role.dashboard]}
 
       
       },
       {
         path: 'client',
         loadChildren: () => import('../app/modules/client/client.module').then(m => m.ClientModule),
-        canActivate: [AuthGuardService],
-        data:{roles :[Role.client]}
+        // canActivate: [AuthGuardService],
+        // data:{roles :[Role.client]}
       
       },
       {
         path: 'contact',
         loadChildren: () => import('../app/modules/contact/contact.module').then(m => m.ContactModule),
-        canActivate: [AuthGuardService],
-        data:{roles :[Role.contact]}
+        // canActivate: [AuthGuardService],
+        // data:{roles :[Role.contact]}
       
       },
       {
         path: 'services',
         loadChildren: () => import('../app/modules/services/services.module').then(m => m.ServicesModule),
-        canActivate: [AuthGuardService],
-        data:{roles :[Role.services]}
+        // canActivate: [AuthGuardService],
+        // data:{roles :[Role.services]}
       
       },
 
