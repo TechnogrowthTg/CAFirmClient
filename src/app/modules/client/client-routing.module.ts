@@ -16,7 +16,7 @@ const routes: Routes = [
     component: ClientFromComponent
   },
   {
-    path:'client-group-form',
+    path:'client-group-form/:group_id',
     component: ClientGroupFormComponent
   }
 ];

@@ -41,7 +41,12 @@ export class ClientGroupTableComponent implements OnInit {
   }
 
   clientForm() {
-    this.router.navigate(['home/client/client-group-form']);
+    this.router.navigate(['home/client/client-group-form',0]);
+
+  }
+
+  editForm(group_id){
+    this.router.navigate(['/home/client/client-group-form',group_id]);
 
   }
 

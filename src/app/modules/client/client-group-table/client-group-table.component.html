@@ -58,7 +58,7 @@
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef> Action </th>
               <td mat-cell *matCellDef="let element">
-                <mat-icon title="Edit">edit</mat-icon>
+                <mat-icon (click)="editForm(element.GroupId)"  title="Edit">edit</mat-icon>
               </td>
             </ng-container>
   

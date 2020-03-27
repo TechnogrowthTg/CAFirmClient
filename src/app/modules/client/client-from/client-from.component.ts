@@ -46,7 +46,6 @@ export class ClientFromComponent implements OnInit {
 
     this.activeRoute.params.subscribe(param => {
       this.clinetID = param.client_id;
-      console.log(this.clinetID);
       if (this.clinetID != 0) {
         this.getformdata(this.clinetID);
       }
