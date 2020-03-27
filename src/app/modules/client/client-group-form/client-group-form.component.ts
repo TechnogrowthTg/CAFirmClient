@@ -14,9 +14,9 @@ export class ClientGroupFormComponent implements OnInit {
 
   response: any;
   clientGroupForm = new FormGroup({
-    groupName: new FormControl(),
-    groupShortName: new FormControl(),
-    groupContact: new FormControl()
+    GroupName: new FormControl(),
+    GroupShortName: new FormControl(),
+    GroupContact: new FormControl()
   });
 
   constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager) { }
@@ -28,7 +28,7 @@ export class ClientGroupFormComponent implements OnInit {
 
     if(this.clientGroupForm.valid){
 
-      this.httpService.postSecured(environment.postClientData,this.clientGroupForm.value).subscribe(data=>{
+      this.httpService.postSecured(environment.postClientGroupData,this.clientGroupForm.value).subscribe(data=>{
         this.response=data;
 
         this.router.navigate(['home/client']);

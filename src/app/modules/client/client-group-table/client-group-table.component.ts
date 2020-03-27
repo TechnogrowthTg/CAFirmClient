@@ -10,7 +10,7 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
   styleUrls: ['./client-group-table.component.scss']
 })
 export class ClientGroupTableComponent implements OnInit {
-  displayedColumns = ['srNo','groupName', 'groupShortName', 'groupContact', 'action'];
+  displayedColumns = ['srNo','GroupName', 'GroupShortName', 'GroupContact', 'action'];
   dataSource: any = [];
   response: any;
 
@@ -31,9 +31,9 @@ export class ClientGroupTableComponent implements OnInit {
   }
 
   getClientGroupData() {
-    this.httpService.getSecured(environment.getClientFormData).subscribe(data => {
-      this.response = data;
-      this.response = data.filter(e => e.isSplited != true);
+    this.httpService.getSecured(environment.getClientGroupData).subscribe(data => {
+      this.response = data.data;
+      this.response = data.data.filter(e => e.isSplited != true);
       this.dataSource = new MatTableDataSource(this.response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

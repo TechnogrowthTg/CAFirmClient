@@ -2,16 +2,21 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const baseUrl = 'assets/json/';
- export const serverBaseUrl = 'http://localhost:53124/';
+ export const serverBaseUrl = 'http://localhost:3124/';
 
 export const environment = {
   production: false,
   login: serverBaseUrl + 'auth/login',
 
   // client
-  getClientData: baseUrl + 'ClientData.json',
-  getClientFormData: baseUrl + 'ClientGroup.json',
-  postClientData : baseUrl + 'client/clientForm',
+  getClientData: serverBaseUrl + 'client/clients',
+  postClientData : serverBaseUrl + 'client/insertClient',
+  getClientDataById : serverBaseUrl + 'client/clientById/{clientId}',
+  updateClientData : serverBaseUrl + 'client/updateclient',
+
+  // client Group
+  getClientGroupData : serverBaseUrl + 'group/groups',
+  postClientGroupData : serverBaseUrl + "group/insertGroup",
 
   // contact
   getContactData: baseUrl + 'ContactData.json',

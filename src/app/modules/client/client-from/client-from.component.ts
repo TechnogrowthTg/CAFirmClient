@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -13,47 +13,90 @@ import { environment } from 'src/environments/environment';
 export class ClientFromComponent implements OnInit {
 
   response: any;
+  clinetID: any;
+  clinetGroupList: any;
 
 
-  constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager) { 
+  constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager, private activeRoute: ActivatedRoute) {
 
+
+    this.getFromGroup();
   }
-  
+
 
 
 
   clientForm = new FormGroup({
-    clientGroup: new FormControl(),
-    clientName: new FormControl(),
-    clientCode: new FormControl(),
-    clientGST: new FormControl(),
-    incorporationDate: new FormControl(),
-    panNo: new FormControl(),
-    adharNo: new FormControl(),
-    clientAddress: new FormControl(),
-    currentStatus: new FormControl(),
-    agreementStatus: new FormControl()
+    GroupId: new FormControl(),
+    ClientName: new FormControl(),
+    ClientEmail: new FormControl(),
+    GstNumber: new FormControl(),
+    PanNumber: new FormControl(),
+    AdharNumber: new FormControl(),
+    ClientAddress: new FormControl(),
+    TypeOfEntity: new FormControl(),
+    CurrentStatus: new FormControl(),
+    AgreementStatus: new FormControl(),
+    IncorporationDate: new FormControl(),
+    ClientId: new FormControl()
   });
 
 
   ngOnInit() {
+
+    this.activeRoute.params.subscribe(param => {
+      this.clinetID = param.client_id;
+      console.log(this.clinetID);
+      if (this.clinetID != 0) {
+        this.getformdata(this.clinetID);
+      }
+    });
+
   }
 
-  submitClientForm(){
+  // get from group data for dropdown
+  getFromGroup(){
+    this.httpService.getSecured(environment.getClientGroupData).subscribe(data => {
+      this.clinetGroupList = data.data;
+    })
+  }
 
-    if(this.clientForm.valid){
 
-      this.httpService.postSecured(environment.postClientData,this.clientForm.value).subscribe(data=>{
-        this.response=data;
+// get form data from id
+  getformdata(clientId) {
+    this.httpService.getSecured(environment.getClientDataById.replace('{clientId}', clientId)).subscribe(data => {
+      this.response = data.data;
+      this.clientForm.patchValue(this.response)
+    })
+  }
 
+
+  // submit and update form
+  submitClientForm() {
+    if (this.clinetID == 0) {   // new client
+      if (this.clientForm.valid) {
+
+        this.httpService.postSecured(environment.postClientData, this.clientForm.value).subscribe(data => {
+          this.response = data;
+          this.toaster.successToastr('Record saved successfully');
+          this.router.navigate(['home/client']);
+          this.clientForm.reset()
+        })
+      }
+    } else {    // update client
+
+      this.httpService.postSecured(environment.updateClientData, this.clientForm.value).subscribe(data => {
+        this.response = data;
+        this.toaster.successToastr('Record saved successfully');
         this.router.navigate(['home/client']);
-
+        this.clientForm.reset()
       })
-
     }
   }
 
-  cancelForm(){
+
+  // cancel form
+  cancelForm() {
     this.clientForm.reset()
     this.router.navigate(['home/client']);
   }

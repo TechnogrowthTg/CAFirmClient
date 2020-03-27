@@ -11,7 +11,7 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class ClientTableComponent implements OnInit {
 
-  displayedColumns = ['srNo', 'name', 'contact', 'email', 'location', 'gst', 'contractMode', 'action'];
+  displayedColumns = ['srNo', 'GroupName', 'ClientName', 'ClientEmail', 'GstNumber', 'PanNumber', 'AdharNumber','ClientAddress','TypeOfEntity','CurrentStatus','AgreementStatus','IncorporationDate', 'action'];
   dataSource: any = [];
   response: any;
 
@@ -34,8 +34,8 @@ export class ClientTableComponent implements OnInit {
 
   getClientData() {
     this.httpService.getSecured(environment.getClientData).subscribe(data => {
-      this.response = data;
-      this.response = data.filter(e => e.isSplited != true);
+      this.response = data.data;
+      this.response = data.data.filter(e => e.isSplited != true);
       this.dataSource = new MatTableDataSource(this.response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -43,8 +43,13 @@ export class ClientTableComponent implements OnInit {
   }
 
   clientForm(){
-    this.router.navigate(['home/client/client-form']);
+    this.router.navigate(['home/client/client-form',0]);
+  }
+
+  editForm(client_id){
+    this.router.navigate(['/home/client/client-form',client_id]);
 
   }
+
 
 }

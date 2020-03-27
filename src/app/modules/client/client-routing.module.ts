@@ -12,7 +12,7 @@ const routes: Routes = [
     component: ClientTabComponent
   },
   {
-    path:'client-form',
+    path:'client-form/:client_id',
     component: ClientFromComponent
   },
   {
