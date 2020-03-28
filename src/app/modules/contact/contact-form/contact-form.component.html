@@ -11,13 +11,13 @@
 
     <div class="inputField">
       <mat-form-field>
-        <input matInput placeholder="Email" formControlName="email">
+        <input matInput placeholder="Email" formControlName="Email">
       </mat-form-field>
     </div>
 
     <div class="inputField">
       <mat-form-field>
-        <input matInput placeholder="Designation Name" formControlName="designationName">
+        <input matInput placeholder="Designation Name" formControlName="Designation">
       </mat-form-field>
     </div>
 
@@ -35,7 +35,7 @@
 
     <div class="inputField">
       <mat-form-field>
-        <input matInput placeholder="Telephone" formControlName="telephone">
+        <input matInput placeholder="Telephone" formControlName="Telephone">
       </mat-form-field>
     </div>
 
@@ -44,7 +44,7 @@
     
     <div class="inputField">
         <mat-form-field>
-            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <textarea matInput placeholder="Address" formControlName="Address"></textarea>
         </mat-form-field>
     </div>
     
@@ -56,13 +56,24 @@
 
     <div class="inputField">
       <mat-form-field>
-        <mat-select placeholder="Current Status" formControlName="currentStatus">
+        <mat-select placeholder="Current Status" formControlName="CurrentStatus">
           <mat-option value="live">Live </mat-option>
           <mat-option value="DND"> DND</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
+    <div class="inputField">
+      <div class="radioBtnBlock">
+
+      <label class="example-margin">BroadService:</label>
+      <mat-radio-group formControlName="IsBroadService">
+        <mat-radio-button class="example-margin" value="yes">Yes</mat-radio-button>
+        <mat-radio-button class="example-margin" value="no">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    </div>
 
   </form>
   <div class="submitBtnSection">

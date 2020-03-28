@@ -27,7 +27,7 @@
       <div class="table-wrapper">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-          <ng-container matColumnDef="srNo">
+          <ng-container matColumnDef="srNo" sticky>
             <th mat-header-cell *matHeaderCellDef> Sr. No. </th>
             <td mat-cell *matCellDef="let element; let i=index"> {{response?.indexOf(element)+1}} </td>
           </ng-container>
@@ -119,6 +119,7 @@
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">
               <mat-icon (click)="editForm(element.ClientId)" title="Edit">edit</mat-icon>
+              <mat-icon  title="contacts">contacts</mat-icon>
             </td>
           </ng-container>
 

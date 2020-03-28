@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const baseUrl = 'assets/json/';
- export const serverBaseUrl = 'http://localhost:3124/';
+export const serverBaseUrl = 'http://localhost:3124/';
 
 export const environment = {
   production: false,
@@ -10,24 +10,28 @@ export const environment = {
 
   // client
   getClientData: serverBaseUrl + 'client/clients',
-  postClientData : serverBaseUrl + 'client/insertClient',
-  getClientDataById : serverBaseUrl + 'client/clientById/{clientId}',
-  updateClientData : serverBaseUrl + 'client/updateclient',
+  postClientData: serverBaseUrl + 'client/insertClient',
+  getClientDataById: serverBaseUrl + 'client/clientById/{clientId}',
+  updateClientData: serverBaseUrl + 'client/updateclient',
 
   // client Group
-  getClientGroupData : serverBaseUrl + 'group/groups',
-  postClientGroupData : serverBaseUrl + "group/insertGroup",
-  getClientGroupDataById : serverBaseUrl + 'group/groupById/{groupById}',
-  updateClientGroupData : serverBaseUrl + 'group/updateGroup',
+  getClientGroupData: serverBaseUrl + 'group/groups',
+  postClientGroupData: serverBaseUrl + "group/insertGroup",
+  getClientGroupDataById: serverBaseUrl + 'group/groupById/{groupById}',
+  updateClientGroupData: serverBaseUrl + 'group/updateGroup',
 
 
 
   // contact
-  getContactData: baseUrl + 'ContactData.json',
+  getContactData: serverBaseUrl + 'contact/contacts',
+  postContactData: serverBaseUrl + 'contact/insertContact',
 
   // service
-  getServiceData : baseUrl + 'ServiceData.json',
-  postServiceData : baseUrl + 'ServiceData.json'
+  getServiceceGroupData: serverBaseUrl + 'serviceGroup/serviceGroups',
+  getServiceSubGroupData: serverBaseUrl + 'subserviceGroup/subServiceGroups',
+  getServicePayData: serverBaseUrl + 'pay/allPay',
+  getServicePaytypeData: serverBaseUrl + 'paytype/allPaytypes'
+
 
 };
 

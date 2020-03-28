@@ -25,14 +25,15 @@ export class ContactFormComponent implements OnInit {
 
   contactForm = new FormGroup({
     ContactPersonName: new FormControl(),
-    email: new FormControl(),
-    designationName: new FormControl(),
+    Email: new FormControl(),
+    Designation: new FormControl(),
     MobileNumber1: new FormControl(),
     MobileNumber2: new FormControl(),
-    telephone: new FormControl(),
-    address: new FormControl(),
+    Telephone: new FormControl(),
+    Address: new FormControl(),
     Reference: new FormControl(),
-    currentStatus: new FormControl()
+    CurrentStatus: new FormControl(),
+    IsBroadService: new FormControl()
   });
 
 
@@ -43,10 +44,10 @@ export class ContactFormComponent implements OnInit {
 
     if(this.contactForm.valid){
 
-      this.httpService.postSecured(environment.postClientData,this.contactForm.value).subscribe(data=>{
+      this.httpService.postSecured(environment.postContactData,this.contactForm.value).subscribe(data=>{
         this.response=data;
-
-        this.router.navigate(['home/client']);
+        this.toaster.successToastr('Record saved successfully');
+        this.router.navigate(['home/contact']);
 
       })
 

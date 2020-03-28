@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServiceTableComponent } from './service-table.component';
+import { ServiceSubGroupComponent } from './service-sub-group.component';
 
-describe('ServiceTableComponent', () => {
-  let component: ServiceTableComponent;
-  let fixture: ComponentFixture<ServiceTableComponent>;
+describe('ServiceSubGroupComponent', () => {
+  let component: ServiceSubGroupComponent;
+  let fixture: ComponentFixture<ServiceSubGroupComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ServiceTableComponent ]
+      declarations: [ ServiceSubGroupComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServiceTableComponent);
+    fixture = TestBed.createComponent(ServiceSubGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

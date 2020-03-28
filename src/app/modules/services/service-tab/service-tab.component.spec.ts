@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServiceFormComponent } from './service-form.component';
+import { ServiceTabComponent } from './service-tab.component';
 
-describe('ServiceFormComponent', () => {
-  let component: ServiceFormComponent;
-  let fixture: ComponentFixture<ServiceFormComponent>;
+describe('ServiceTabComponent', () => {
+  let component: ServiceTabComponent;
+  let fixture: ComponentFixture<ServiceTabComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ServiceFormComponent ]
+      declarations: [ ServiceTabComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServiceFormComponent);
+    fixture = TestBed.createComponent(ServiceTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

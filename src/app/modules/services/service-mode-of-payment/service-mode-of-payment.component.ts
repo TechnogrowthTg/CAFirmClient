@@ -5,13 +5,14 @@ import { environment } from 'src/environments/environment';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: 'app-service-table',
-  templateUrl: './service-table.component.html',
-  styleUrls: ['./service-table.component.scss']
+  selector: 'app-service-mode-of-payment',
+  templateUrl: './service-mode-of-payment.component.html',
+  styleUrls: ['./service-mode-of-payment.component.scss']
 })
-export class ServiceTableComponent implements OnInit {
+export class ServiceModeOfPaymentComponent implements OnInit {
 
-  displayedColumns = ['srNo','ServiceGroupName', 'ServiceName', 'ServicePayment','ServiceAmount','ServiceFrequency', 'action'];
+
+  displayedColumns = ['srNo', 'ModeOfPayment', 'action'];
   dataSource: any = [];
   response: any;
 
@@ -19,11 +20,12 @@ export class ServiceTableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private httpService: HttpService, private router: Router) {
-
-    this.getServiceData()
+    this.getServiceGroupData();
   }
+
   ngOnInit() {
   }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
@@ -31,19 +33,19 @@ export class ServiceTableComponent implements OnInit {
     }
   }
 
-  getServiceData() {
-    this.httpService.getSecured(environment.getServiceData).subscribe(data => {
-      this.response = data;
-      this.response = data.filter(e => e.isSplited != true);
+  getServiceGroupData() {
+    this.httpService.getSecured(environment.getServicePaytypeData).subscribe(data => {
+      this.response = data.data;
+      this.response = data.data.filter(e => e.isSplited != true);
       this.dataSource = new MatTableDataSource(this.response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
   }
 
-  serviceForm() {
-    this.router.navigate(['home/services/service-form']);
-
+  clientForm(){
+    this.router.navigate(['home/service']);
   }
+
 
 }

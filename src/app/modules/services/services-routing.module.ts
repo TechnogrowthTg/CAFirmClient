@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ServiceTableComponent } from './service-table/service-table.component';
-import { ServiceFormComponent } from './service-form/service-form.component';
+import { ServiceTabComponent } from './service-tab/service-tab.component';
 
 
 const routes: Routes = [
-  { path: '', component: ServiceTableComponent },
-  { path: 'service-form', component: ServiceFormComponent }
+  { path: '', component: ServiceTabComponent }
 ];
 
 @NgModule({
