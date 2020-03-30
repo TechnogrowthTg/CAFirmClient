@@ -6,3 +6,59 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+.ModalPage{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    background-color: #0000001f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Modal{
+        width: 60%;
+        padding: 20px 10px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 3px 3px 6px 2px #0000003d;
+
+        .formFieldSection{
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+        
+            form{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+                grid-auto-rows: 80px;
+                grid-gap: 20px 41px;
+        
+                .inputField{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .mat-form-field {
+                        width: 80%;
+                    }
+                }
+            }
+            .submitBtnSection{
+                bottom: 10px;
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    margin: 0px 10px;
+                    height: 40px;
+                    width: 120px;
+                    font-size: 1.1rem;
+                }
+            }
+        
+            
+        }
+
+    }
+}

@@ -26,11 +26,21 @@ export const environment = {
   getContactData: serverBaseUrl + 'contact/contacts',
   postContactData: serverBaseUrl + 'contact/insertContact',
 
-  // service
+  // service Group
   getServiceceGroupData: serverBaseUrl + 'serviceGroup/serviceGroups',
+  postServiceceGroupData : serverBaseUrl + 'serviceGroup/addServiceGroup',
+  updateServiceceGroupData : serverBaseUrl + 'serviceGroup/updateServiceGroup',
+  getServiceceGroupDataById: serverBaseUrl + 'serviceGroup/serviceGroupById/{ServiceGroupId}',
+
+  // Service Sub Group
   getServiceSubGroupData: serverBaseUrl + 'subserviceGroup/subServiceGroups',
+  postServiceceSubGroupData : serverBaseUrl + 'subserviceGroup/addSubServiceGroup',
+  updateServiceceSubGroupData : serverBaseUrl + 'subserviceGroup/updateSubServiceGroup',
+  getServiceceGroupSubDataById: serverBaseUrl + 'subserviceGroup/SubServiceGroupById/{ServiceGroupId}',
+
   getServicePayData: serverBaseUrl + 'pay/allPay',
   getServicePaytypeData: serverBaseUrl + 'paytype/allPaytypes'
+
 
 
 };
