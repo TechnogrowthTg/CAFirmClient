@@ -34,8 +34,8 @@ export class ClientTableComponent implements OnInit {
 
   getClientData() {
     this.httpService.getSecured(environment.getClientData).subscribe(data => {
-      this.response = data.data;
-      this.response = data.data.filter(e => e.isSplited != true);
+      this.response =data.data[0];
+      this.response = data.data[0].filter(e => e.isSplited != true);
       this.dataSource = new MatTableDataSource(this.response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
