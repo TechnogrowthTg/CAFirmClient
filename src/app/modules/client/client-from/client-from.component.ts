@@ -4,6 +4,7 @@ import { HttpService } from 'src/app/services/http.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-client-from',
@@ -17,7 +18,7 @@ export class ClientFromComponent implements OnInit {
   clinetGroupList: any;
 
 
-  constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager, private activeRoute: ActivatedRoute) {
+  constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager, private activeRoute: ActivatedRoute,private location:Location) {
 
 
     this.getFromGroup();
@@ -78,7 +79,8 @@ export class ClientFromComponent implements OnInit {
         this.httpService.postSecured(environment.postClientData, this.clientForm.value).subscribe(data => {
           this.response = data;
           this.toaster.successToastr('Record saved successfully');
-          this.router.navigate(['home/client']);
+          // this.router.navigate(['home/client']);
+          this.location.back();
           this.clientForm.reset()
         })
       }
@@ -87,7 +89,9 @@ export class ClientFromComponent implements OnInit {
       this.httpService.postSecured(environment.updateClientData, this.clientForm.value).subscribe(data => {
         this.response = data;
         this.toaster.successToastr('Record saved successfully');
-        this.router.navigate(['home/client']);
+        // this.router.navigate(['home/client']);
+        this.location.back();
+
         this.clientForm.reset()
       })
     }

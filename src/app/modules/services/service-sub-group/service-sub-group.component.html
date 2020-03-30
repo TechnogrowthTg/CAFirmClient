@@ -10,7 +10,7 @@
         <div class="col-md-3 offset-md-3">
           <div class="BtnSection">
   
-            <div class="addClientBtn" (click)="clientForm()">
+            <div class="addClientBtn" (click)="addServiceSubGroupForm()">
               <i class="material-icons">
                 add_circle_outline
               </i>
@@ -45,7 +45,7 @@
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef> Action </th>
               <td mat-cell *matCellDef="let element">
-                <mat-icon (click)="editForm(element.ClientId)" title="Edit">edit</mat-icon>
+                <mat-icon (click)="editForm(element.ServiceSubGroupId)" title="Edit">edit</mat-icon>
               </td>
             </ng-container>
   
@@ -58,5 +58,30 @@
       </div>
     </div>
   
+
+    <div class="ModalPage" *ngIf="modal">
+
+      <div class="Modal">
+        <div class="formFieldSection">
+
+          <form [formGroup]="serviceSubGroup"  autocomplete="off">
+              
+              <div class="inputField">
+                  <mat-form-field>
+                    <input matInput placeholder="Service Sub Group Name" formControlName="ServiceSubGroupName" >
+                  </mat-form-field>
+                </div>
+       
+          </form>
+          <div class="submitBtnSection">
+            <button mat-flat-button color="primary" (click)="submitServiceSubGroupForm()" >submit</button>
+            <button mat-flat-button color="warn" (click)="cancelForm()">Cancel</button>
+          </div>
+        
+        </div>
+      </div>
+
+
+    </div>
   </div>
   

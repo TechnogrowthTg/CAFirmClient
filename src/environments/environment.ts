@@ -36,10 +36,18 @@ export const environment = {
   getServiceSubGroupData: serverBaseUrl + 'subserviceGroup/subServiceGroups',
   postServiceceSubGroupData : serverBaseUrl + 'subserviceGroup/addSubServiceGroup',
   updateServiceceSubGroupData : serverBaseUrl + 'subserviceGroup/updateSubServiceGroup',
-  getServiceceGroupSubDataById: serverBaseUrl + 'subserviceGroup/SubServiceGroupById/{ServiceGroupId}',
+  getServiceceGroupSubDataById: serverBaseUrl + 'subserviceGroup/SubServiceGroupById/{ServiceSubGroupId}',
 
   getServicePayData: serverBaseUrl + 'pay/allPay',
-  getServicePaytypeData: serverBaseUrl + 'paytype/allPaytypes'
+  postServicePayData : serverBaseUrl + 'pay/insertPay',
+  updateServicePayData : serverBaseUrl + 'pay/updatePay',
+  getServicePayDataById: serverBaseUrl + 'pay/payById/{ServicePayId}',
+
+
+  getServicePaytypeData: serverBaseUrl + 'paytype/allPaytypes',
+  postServicePaytypeData : serverBaseUrl + 'paytype/insertPaytype',
+  updateServicePaytypeData : serverBaseUrl + 'paytype/updatePaytype',
+  getServicePaytypeDataById: serverBaseUrl + 'paytype/paytypeById/{PayTypeId}',
 
 
 

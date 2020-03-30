@@ -3,6 +3,8 @@ import { HttpService } from 'src/app/services/http.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-service-pay',
@@ -11,6 +13,18 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class ServicePayComponent implements OnInit {
 
+  modal: boolean;
+  isEdited: boolean;
+
+
+  servicePay = new FormGroup({
+    PeriodOfService: new FormControl(),
+    DefaultAmount: new FormControl(),
+    ServicePayId : new FormControl()
+  });
+
+
+
   displayedColumns = ['srNo', 'PeriodOfService','DefaultAmount', 'action'];
   dataSource: any = [];
   response: any;
@@ -18,8 +32,8 @@ export class ServicePayComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private httpService: HttpService, private router: Router) {
-    this.getServiceGroupData();
+  constructor(private httpService: HttpService, private router: Router, private toaster: ToastrManager) {
+    this.getServicePayData();
   }
 
   ngOnInit() {
@@ -32,7 +46,7 @@ export class ServicePayComponent implements OnInit {
     }
   }
 
-  getServiceGroupData() {
+  getServicePayData() {
     this.httpService.getSecured(environment.getServicePayData).subscribe(data => {
       this.response = data.data[0];
       this.response = data.data[0].filter(e => e.isSplited != true);
@@ -42,8 +56,46 @@ export class ServicePayComponent implements OnInit {
     })
   }
 
-  clientForm(){
-    this.router.navigate(['home/service']);
+  getServicePayDataById(ServicePayId) {
+    this.httpService.getSecured(environment.getServicePayDataById.replace('{ServicePayId}', ServicePayId)).subscribe(data => {
+      this.servicePay.patchValue(data.data)
+    })
+  }
+
+  addServicePayForm() {
+    this.modal = true;
+  }
+
+  cancelForm() {
+    this.modal = false;
+    // this.router.navigate(['home/service']);
+  }
+
+  submitServicePayForm() {
+    if (!this.isEdited) {
+
+      if (this.servicePay.valid) {
+        this.httpService.postSecured(environment.postServicePayData, this.servicePay.value).subscribe(data => {
+          this.toaster.successToastr('Record saved successfully');
+          this.modal = false;
+          this.getServicePayData();
+        })
+      }
+    } else {
+      this.httpService.postSecured(environment.updateServicePayData, this.servicePay.value).subscribe(data => {
+        this.toaster.successToastr('Record saved successfully');
+        this.servicePay.reset()
+        this.modal = false;
+        this.isEdited = false;
+        this.getServicePayData();
+      })
+    }
+  }
+
+  editForm(ServicePayId) {
+    this.modal = true;
+    this.isEdited = true;
+    this.getServicePayDataById(ServicePayId)
   }
 
 
