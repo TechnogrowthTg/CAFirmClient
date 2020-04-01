@@ -96,6 +96,17 @@ export class ServiceModeOfPaymentComponent implements OnInit {
     this.getServicePaymentDataById(PayTypeId)
   }
 
+  deleteForm(PayTypeId) {
+    let data = {
+      PayTypeId: PayTypeId
+    }
+    
+    this.httpService.putSecured(environment.deleteServicePaytypeData, data).subscribe(data => {
+      this.toaster.successToastr('Record delete successfully');
+      this.getServicePaymentData();
 
+      
+    })
+  }
 
 }

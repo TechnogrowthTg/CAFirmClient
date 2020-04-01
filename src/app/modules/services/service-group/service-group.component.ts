@@ -98,5 +98,17 @@ export class ServiceGroupComponent implements OnInit {
   }
 
 
+  deleteForm(ServiceGroupId) {
+    let data = {
+      ServiceGroupId: ServiceGroupId
+    }
+    
+    this.httpService.putSecured(environment.deleteServiceceGroupData, data).subscribe(data => {
+      this.toaster.successToastr('Record delete successfully');
+      this.getServiceGroupData();
+    })
+  }
+
+
 
 }

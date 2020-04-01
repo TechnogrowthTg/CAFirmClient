@@ -46,6 +46,7 @@
               <th mat-header-cell *matHeaderCellDef> Action </th>
               <td mat-cell *matCellDef="let element">
                 <mat-icon (click)="editForm(element.ServiceGroupId)" title="Edit">edit</mat-icon>
+                <mat-icon style="color: red;" (click)="deleteForm(element.ServiceGroupId)"   title="delete">delete</mat-icon>
               </td>
             </ng-container>
   

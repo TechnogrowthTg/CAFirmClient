@@ -31,26 +31,32 @@ export const environment = {
 
   // service Group
   getServiceceGroupData: serverBaseUrl + 'serviceGroup/serviceGroups',
-  postServiceceGroupData : serverBaseUrl + 'serviceGroup/addServiceGroup',
-  updateServiceceGroupData : serverBaseUrl + 'serviceGroup/updateServiceGroup',
+  postServiceceGroupData: serverBaseUrl + 'serviceGroup/addServiceGroup',
+  updateServiceceGroupData: serverBaseUrl + 'serviceGroup/updateServiceGroup',
   getServiceceGroupDataById: serverBaseUrl + 'serviceGroup/serviceGroupById/{ServiceGroupId}',
+  deleteServiceceGroupData: serverBaseUrl + 'serviceGroup/deleteServiceGroup',
 
   // Service Sub Group
   getServiceSubGroupData: serverBaseUrl + 'subserviceGroup/subServiceGroups',
-  postServiceceSubGroupData : serverBaseUrl + 'subserviceGroup/addSubServiceGroup',
-  updateServiceceSubGroupData : serverBaseUrl + 'subserviceGroup/updateSubServiceGroup',
+  postServiceceSubGroupData: serverBaseUrl + 'subserviceGroup/addSubServiceGroup',
+  updateServiceceSubGroupData: serverBaseUrl + 'subserviceGroup/updateSubServiceGroup',
   getServiceceGroupSubDataById: serverBaseUrl + 'subserviceGroup/SubServiceGroupById/{ServiceSubGroupId}',
+  deleteServiceSubGroupData: serverBaseUrl + 'subserviceGroup/deleteSubServiceGroup',
 
-  getServicePayData: serverBaseUrl + 'pay/allPay',
-  postServicePayData : serverBaseUrl + 'pay/insertPay',
-  updateServicePayData : serverBaseUrl + 'pay/updatePay',
-  getServicePayDataById: serverBaseUrl + 'pay/payById/{ServicePayId}',
-
-
+  // Service Paytype
   getServicePaytypeData: serverBaseUrl + 'paytype/allPaytypes',
-  postServicePaytypeData : serverBaseUrl + 'paytype/insertPaytype',
-  updateServicePaytypeData : serverBaseUrl + 'paytype/updatePaytype',
+  postServicePaytypeData: serverBaseUrl + 'paytype/insertPaytype',
+  updateServicePaytypeData: serverBaseUrl + 'paytype/updatePaytype',
   getServicePaytypeDataById: serverBaseUrl + 'paytype/paytypeById/{PayTypeId}',
+  deleteServicePaytypeData: serverBaseUrl + 'paytype/deletePaytype',
+
+
+  // Service Pay 
+  getServicePayData: serverBaseUrl + 'pay/allPay',
+  postServicePayData: serverBaseUrl + 'pay/insertPay',
+  updateServicePayData: serverBaseUrl + 'pay/updatePay',
+  getServicePayDataById: serverBaseUrl + 'pay/payById/{ServicePayId}',
+  deleteServicePayData: serverBaseUrl + 'pay/deletePay',
 
 
 

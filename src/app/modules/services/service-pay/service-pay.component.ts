@@ -116,5 +116,14 @@ export class ServicePayComponent implements OnInit {
     this.getServicePayDataById(ServicePayId)
   }
 
-
+  deleteForm(ServicePayId) {
+    let data = {
+      ServicePayId: ServicePayId
+    }
+    
+    this.httpService.putSecured(environment.deleteServicePayData, data).subscribe(data => {
+      this.toaster.successToastr('Record delete successfully');
+      this.getServicePayData();
+    })
+  }
 }
