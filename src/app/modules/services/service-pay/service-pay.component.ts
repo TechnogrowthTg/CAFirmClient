@@ -53,8 +53,8 @@ export class ServicePayComponent implements OnInit {
 
   getServicePayData() {
     this.httpService.getSecured(environment.getServicePayData).subscribe(data => {
-      this.response = data.data[0];
-      this.response = data.data[0].filter(e => e.isSplited != true);
+      this.response = data.data;
+      this.response = data.data.filter(e => e.isSplited != true);
       this.dataSource = new MatTableDataSource(this.response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -63,12 +63,12 @@ export class ServicePayComponent implements OnInit {
 
   getServiceGroupData() {
     this.httpService.getSecured(environment.getServiceceGroupData).subscribe(data => {
-      this.serviceGroupList = data.data[0];
+      this.serviceGroupList = data.data;
     })
   }
   getServiceGroupSubData() {
     this.httpService.getSecured(environment.getServiceSubGroupData).subscribe(data => {
-      this.serviceSubGroupList = data.data[0];
+      this.serviceSubGroupList = data.data;
     })
   }
 

@@ -54,7 +54,7 @@ export class ClientFromComponent implements OnInit {
   // get from group data for dropdown
   getFromGroup(){
     this.httpService.getSecured(environment.getClientGroupData).subscribe(data => {
-      this.clinetGroupList = data.data[0];
+      this.clinetGroupList = data.data;
     })
   }
 
