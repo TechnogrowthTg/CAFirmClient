@@ -15,12 +15,17 @@ export class ServicePayComponent implements OnInit {
 
   modal: boolean;
   isEdited: boolean;
+  serviceGroupList:any;
+  serviceSubGroupList:any;
+
 
 
   servicePay = new FormGroup({
     PeriodOfService: new FormControl(),
     DefaultAmount: new FormControl(),
-    ServicePayId : new FormControl()
+    ServicePayId : new FormControl(),
+    ServiceGroupId: new FormControl(),
+    ServiceSubGroupId: new FormControl(),
   });
 
 
@@ -56,6 +61,17 @@ export class ServicePayComponent implements OnInit {
     })
   }
 
+  getServiceGroupData() {
+    this.httpService.getSecured(environment.getServiceceGroupData).subscribe(data => {
+      this.serviceGroupList = data.data[0];
+    })
+  }
+  getServiceGroupSubData() {
+    this.httpService.getSecured(environment.getServiceSubGroupData).subscribe(data => {
+      this.serviceSubGroupList = data.data[0];
+    })
+  }
+
   getServicePayDataById(ServicePayId) {
     this.httpService.getSecured(environment.getServicePayDataById.replace('{ServicePayId}', ServicePayId)).subscribe(data => {
       this.servicePay.patchValue(data.data)
@@ -64,6 +80,8 @@ export class ServicePayComponent implements OnInit {
 
   addServicePayForm() {
     this.modal = true;
+    this.getServiceGroupData();
+    this.getServiceGroupSubData();
   }
 
   cancelForm() {

@@ -3,6 +3,7 @@ import { HttpService } from 'src/app/services/http.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-client-group-table',
@@ -17,7 +18,8 @@ export class ClientGroupTableComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private httpService: HttpService, private router: Router) {
+  constructor(private httpService: HttpService, private router: Router,
+    private toaster: ToastrManager) {
 
     this.getClientGroupData()
   }
@@ -48,6 +50,17 @@ export class ClientGroupTableComponent implements OnInit {
   editForm(group_id){
     this.router.navigate(['/home/client/client-group-form',group_id]);
 
+  }
+
+  deleteForm(GroupId) {
+    let data = {
+      GroupId: GroupId
+    }
+    
+    this.httpService.putSecured(environment.deleteClientGroupData, data).subscribe(data => {
+      this.toaster.successToastr('Record delete successfully');
+      this.getClientGroupData();
+    })
   }
 
 }

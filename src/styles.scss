@@ -2,6 +2,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 $font-color:#271F5A;
+$primary-color:#713BDB;
 
 body {
   margin: 0px;
@@ -127,4 +128,14 @@ th.mat-header-cell {
     box-shadow: 3px 3px 6px 2px #0000003d;
 
   }
+}
+
+.mat-tab-label-active{
+  background-color: $primary-color !important;
+  color: white;
+  opacity: 1 !important;
+}
+
+.material-icons {
+  cursor: pointer;
 }

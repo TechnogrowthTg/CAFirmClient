@@ -24,9 +24,6 @@ export class ClientFromComponent implements OnInit {
     this.getFromGroup();
   }
 
-
-
-
   clientForm = new FormGroup({
     GroupId: new FormControl(),
     ClientName: new FormControl(),
@@ -57,7 +54,7 @@ export class ClientFromComponent implements OnInit {
   // get from group data for dropdown
   getFromGroup(){
     this.httpService.getSecured(environment.getClientGroupData).subscribe(data => {
-      this.clinetGroupList = data.data;
+      this.clinetGroupList = data.data[0];
     })
   }
 
@@ -103,5 +100,4 @@ export class ClientFromComponent implements OnInit {
     this.clientForm.reset()
     this.router.navigate(['home/client']);
   }
-
 }

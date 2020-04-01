@@ -65,6 +65,18 @@
         <div class="formFieldSection">
 
           <form [formGroup]="serviceSubGroup"  autocomplete="off">
+
+            <div class="inputField">
+              <mat-form-field>
+                <mat-select placeholder="Service Group"formControlName="ServiceGroup" >
+                  <mat-option *ngFor="let serviceGroup of serviceGroupList" [value]="serviceGroup.ServiceGroupId">
+                    {{serviceGroup.ServiceGroupName}}
+                  </mat-option>
+        
+                </mat-select>
+              </mat-form-field>
+        
+            </div>
               
               <div class="inputField">
                   <mat-form-field>

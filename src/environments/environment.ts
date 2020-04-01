@@ -13,12 +13,15 @@ export const environment = {
   postClientData: serverBaseUrl + 'client/insertClient',
   getClientDataById: serverBaseUrl + 'client/clientById/{clientId}',
   updateClientData: serverBaseUrl + 'client/updateclient',
+  deleteClientData: serverBaseUrl + 'client/deleteclient',
 
   // client Group
   getClientGroupData: serverBaseUrl + 'group/groups',
   postClientGroupData: serverBaseUrl + "group/insertGroup",
   getClientGroupDataById: serverBaseUrl + 'group/groupById/{groupById}',
   updateClientGroupData: serverBaseUrl + 'group/updateGroup',
+  deleteClientGroupData: serverBaseUrl + 'group/deleteGroup',
+
 
 
 

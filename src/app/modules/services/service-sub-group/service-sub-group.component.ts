@@ -16,11 +16,13 @@ export class ServiceSubGroupComponent implements OnInit {
 
   modal: boolean;
   isEdited: boolean;
+  serviceGroupList:any;
 
 
   serviceSubGroup = new FormGroup({
     ServiceSubGroupName: new FormControl(),
-    ServiceSubGroupId: new FormControl()
+    ServiceSubGroupId: new FormControl(),
+    ServiceGroup: new FormControl()
   });
 
 
@@ -45,6 +47,15 @@ export class ServiceSubGroupComponent implements OnInit {
     }
   }
 
+
+  getServiceGroupData() {
+    this.httpService.getSecured(environment.getServiceceGroupData).subscribe(data => {
+      this.serviceGroupList = data.data[0];
+    })
+  }
+
+  
+
   getServiceGroupSubData() {
     this.httpService.getSecured(environment.getServiceSubGroupData).subscribe(data => {
       this.response = data.data[0];
@@ -62,6 +73,7 @@ export class ServiceSubGroupComponent implements OnInit {
   }
 
   addServiceSubGroupForm() {
+    this.getServiceGroupData();
     this.modal = true;
   }
 

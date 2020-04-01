@@ -20,6 +20,10 @@ export class HttpService {
     return this.httpClient.post(url, payload);
   }
 
+  putSecured(url, payload): Observable<any> {
+    return this.httpClient.put(url, payload);
+  }
+
   patchSecured(url, payload) {
     return this.httpClient.patch(url, payload);
   }
